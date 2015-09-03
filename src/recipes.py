@@ -3,6 +3,7 @@
 from flask import Flask, jsonify, render_template, request
 from models import Recipe
 import logging
+from recipesrepository import RecipesRepository
 
 app = Flask(__name__)
 
@@ -29,7 +30,9 @@ def recipe(id):
 
 @app.route('/recipes')
 def recipes():
-    return jsonify({'result': [recipe.__dict__ for recipe in dbRecipes]})
+    repository = RecipesRepository()
+    recipes = repository.all()
+    return jsonify({'result': [recipe.__dict__ for recipe in recipes]})
 
 @app.route('/')
 def index():
