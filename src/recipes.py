@@ -23,20 +23,24 @@ dbRecipes.append(Recipe(5, 'Good and throw away', 'Lipsum...'))
 #app.logger.info(list(filter(lambda x: x.id == 1, dbRecipes)))
 #app.logger.info([recipe for recipe in dbRecipes if recipe.id == 1])
 
-@app.route('/recipe/<id>')
-def recipe(id):
+@app.route('/api/recipe/<id>')
+def api_recipe(id):
     recipe = [recipe for recipe in dbRecipes if recipe.id == 1]
     return jsonify({'result': recipe[0].__dict__})
 
-@app.route('/recipes')
-def recipes():
-    repository = RecipesRepository()
-    recipes = repository.all()
+@app.route('/api/recipes')
+def api_recipes():
+    recipes = RecipesRepository().all()
     return jsonify({'result': [recipe.__dict__ for recipe in recipes]})
+
+@app.route('/recipe/<id>')
+def recipe(id):
+    return render_template('recipe.html')
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    model = RecipesRepository().all()
+    return render_template('index.html', model = model)
 
 if __name__ == '__main__':
     app.run()

@@ -1,0 +1,18 @@
+.grid-1-2-4 {
+    margin: 0 auto;
+    overflow: hidden;
+
+    .grid-item {
+        float: left;
+        width: percentage(1);
+
+        @include breakpoint($breakpoint-medium) {
+            width: percentage(1/2);
+        }
+
+        @include breakpoint($breakpoint-large) {
+            width: percentage(1/3);
+        }
+    }
+
+}

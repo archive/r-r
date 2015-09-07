@@ -6,11 +6,12 @@
         <title>Retrospective Recipes</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/master.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='output/master.css') }}">
     </head>
     <body>
-		{% block body %}{% endblock %}
-
+        <main class="site-width">
+		  {% block body %}{% endblock %}
+        </main>
         <script type="text/javascript" src="{{ url_for('static', filename='scripts/app.js') }}"></script>
     </body>
 </html>

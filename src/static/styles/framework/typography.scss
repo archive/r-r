@@ -1,0 +1,18 @@
+$ms-base: 1.26491em;
+$ms-ratio: $major-second;
+
+html {
+    font-size: 62.5%;
+}
+
+body, p, span {
+    font-size: ms(0);
+}
+
+h1 {
+    font-size: ms(2);
+}
+
+h2 {
+    font-size: ms(1);
+}

@@ -1,0 +1,5 @@
+@mixin breakpoint($breakpoint-threshold) {
+    @media (min-width: #{$breakpoint-threshold}) {
+        @content;
+    }
+}

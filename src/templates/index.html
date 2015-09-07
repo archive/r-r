@@ -1,4 +1,25 @@
 {% extends "layout.html" %}
 {% block body %}
-HEJ!
+
+<section>
+    <h1>Retrospective recipes</h1>
+    <ul class="grid-1-2-4 cards">
+        {% for recipe in model %}
+        <li class="grid-item">
+            <article class="card">
+                <a href="/recipe/{{ recipe.id }}" class="card-link">
+                    <figure>
+                        <img src="{{ url_for('static', filename='images/speed-boat.jpg') }}" alt="{{ recipe.title }}">
+                        <figcaption><h2>{{ recipe.title }}<h2></figcaption>
+                    </figure>
+                </a>
+            </article>
+        </li>
+        {% endfor %}
+    </ul>
+</section>
+
+<p>Lipsum</p>
+<span>Lipsum</span>
+
 {% endblock %}

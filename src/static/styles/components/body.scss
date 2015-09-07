@@ -1,0 +1,12 @@
+body {
+    background-color: $palette-color-3;
+}
+
+.site-width {
+    max-width: $breakpoint-xxlarge;
+    padding: 0 2rem;
+
+    @include breakpoint($breakpoint-xxlarge) {
+        padding: 0;
+    }
+}
